@@ -9,7 +9,9 @@
 <img alt="blackbird-cli" align="center" src="assets/img/BlackSearchCLI.png">
 
 ## Disclaimer
+```
 This program is for educational purposes ONLY. Do not use it against individuals or systems without proper authorization and explicit permission. The author (eliasnau25) does not endorse any illegal or unethical activities with this software. Use it responsibly, respecting the privacy and rights of others. Any misuse or unauthorized use is strictly prohibited and may have legal consequences.
+```
 
 ## Setup
 
