@@ -6,6 +6,7 @@ import sys
 
 import googlesearch
 import ipsearch
+import domainsearch
 
 GREEN = "\033[92m"
 CYAN = "\033[96m"
@@ -18,13 +19,13 @@ def main():
     parser.add_argument("--google", action="store_true", help="Use Google Custom Search API")
     parser.add_argument("--username", action="store_true", help="Perform social media username search")
     parser.add_argument("--ip", action="store_true", help="Perform IP address search")
+    parser.add_argument("--domain", action="store_true", help="Perform domain search")
     parser.add_argument("-q", "--query", help="The search query")
     parser.add_argument("-s", "--site", help="Search only on a specific site")
     parser.add_argument("-t", "--type", help="Search only for a specific file type")
     parser.add_argument("-r", "--max_results", type=int, default=10, help="Maximum number of results (default: 10)")
 
     args = parser.parse_args()
-
 
     print(RED + """\n\n\n
              ____  _            _    ____                      _
@@ -34,9 +35,6 @@ def main():
             |____/|_|\__,_|\___|_|\_|____/ \___|\__,_|_|  \___|_| |_|
             
                                         Made by """ + CYAN + "eliasnau25" + RESET + "\n\n\n\n")
-
-
-
 
     if args.google and args.query:
         search_query = args.query
@@ -51,11 +49,18 @@ def main():
             max_results = 0
             googlesearch.search(search_query, max_results)
 
+    elif args.username and args.query:
+        # Implement your username search logic here
+        print("Username Search Module is not implemented yet.")
+
     elif args.ip and args.query:
         asyncio.run(ip_search(args.query))
+
+    elif args.domain and args.query:
+        domainsearch.domain_search(args.query)
     
     else:
-        print(RED + "Unsupported search engine or invalid arguments. Please use --google for regular search, --username for social media username search, or --ip for IP address search.\n" + RESET)
+        print(RED + "Unsupported search engine or invalid arguments. Please use --google for regular search, --username for social media username search, --ip for IP address search, or --domain for domain search.\n" + RESET)
 
 async def ip_search(ip_address):
     await ipsearch.search_ip(ip_address)
