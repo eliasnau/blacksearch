@@ -95,7 +95,7 @@ Search completed in 0.33 seconds
 ```
 ### Perform an Domain Info Search
 ```python
-python blacksearch.py --ip -q <domain> # You can provid an Ip-4 Ip-6 or a domain
+python blacksearch.py --domain -q <domain> # You can provid an Ip-4 Ip-6 or a domain
 ```
 Optional Arguments:
 ```python
