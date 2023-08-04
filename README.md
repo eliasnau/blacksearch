@@ -26,7 +26,7 @@ pip install -r requirements.txt
 ```
 ## Usage
 
-#### Perform a normal google search in your terminal
+### Perform a normal google search in your terminal
 ```python
 python blackbird.py --google -q <query>
 ```
@@ -62,7 +62,7 @@ URL: https://docs.python.org/3/tutorial/index.html
 Search completed in 3.53 seconds. Found 3 results.
 ```
 
-#### Perform an IP-Search
+### Perform an IP-Search
 ```python
 python blacksearch.py --ip -q <ip-adress> # You can provid an Ip-4 Ip-6 or a domain
 ```
