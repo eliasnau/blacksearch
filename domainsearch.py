@@ -70,13 +70,3 @@ def domain_search(domain):
                 print(link.get('href'))
     except requests.RequestException as e:
         print(RED + "Error fetching mentions:", e + RESET)
-
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description="Domain Search Module - BlackSearch")
-    parser.add_argument("-d", "--domain", help="The domain name to search for")
-    args = parser.parse_args()
-
-    if args.domain:
-        domain_search(args.domain)
-    else:
-        print(RED + "Please provide a domain name using -d or --domain option." + RESET)

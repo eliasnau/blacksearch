@@ -1,3 +1,3 @@
 aiohttp==3.8.3
-whois==0.9.27
+python-whois==0.9.27
 dns
