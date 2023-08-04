@@ -1,5 +1,5 @@
 <img alt="blackbird-logo" align="left" width="300" height="300" src="assets/img/BlackSearch.png">
-<h1>Blackbird</h1>
+<h1>Blacksearch</h1>
 
 ### An OSINT tool to search fast for Google in the Terminal, Get data from IP Adresses like Geolocation and Service Privider.
 > BlackSearch is a powerful OSINT tool that provides IP address information, Google searches, website vulnerability analysis, data breach checks, and domain exploration. Use it responsibly and always seek permission before using it against others.
