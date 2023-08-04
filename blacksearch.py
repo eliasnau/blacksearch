@@ -8,6 +8,7 @@ def main():
     parser.add_argument("--username", action="store_true", help="Perform social media username search")
     parser.add_argument("-q", "--query", help="The search query")
     parser.add_argument("-s","--site" ,help="Search only on a spesific site")
+    parser.add_argument("-t","--type" ,help="Search only on a spesific site")
     parser.add_argument("-r", "--max_results", type=int, default=10, help="Maximum number of results (default: 10)")
 
     args = parser.parse_args()
@@ -16,6 +17,8 @@ def main():
         search_query = args.query
         if args.site:
             search_query = 'site:"' + args.site + '" ' + args.query
+        if args.type:
+            search_query = 'type:"' + args.type + '" ' + search_query
 
         if args.max_results:
             googlesearch.search(search_query, args.max_results)
