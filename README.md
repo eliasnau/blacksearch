@@ -1,4 +1,4 @@
-<img alt="blackbird-logo" align="left" width="300" height="300" src="">
+<img alt="blackbird-logo" align="left" width="300" height="300" src="assets/img/BlackSearch.png">
 <h1>Blackbird</h1>
 
 ### An OSINT tool to search fast for Google in the Terminal, Get data from IP Adresses like Geolocation and Service Privider.
