@@ -16,11 +16,15 @@ def main():
     args = parser.parse_args()
 
     if args.google and args.query:
+        search_query = args.query
+        if args.site:
+            search_query = 'site:"' + args.site + '" ' + args.query
+
         if args.max_results:
-            googlesearch.search('site:"' + args.site + '" ' + args.query, args.max_results)
+            googlesearch.search(search_query, args.max_results)
         else:
             max_results = 0
-            googlesearch.search('site:"' + args.site + '" ' + args.query, max_results)
+            googlesearch.search(search_query, max_results)
     elif args.help:
         print('Blacksearch: ')
         print('-use [--google] to perform an Google Search. /n /t - [-q] sets the serach query. For example: --google -q "Blacksearch')
