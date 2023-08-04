@@ -1,4 +1,4 @@
-# blacksearch
+# Blacksearch
 
 ## Setup
 
