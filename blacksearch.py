@@ -25,9 +25,6 @@ def main():
         else:
             max_results = 0
             googlesearch.search(search_query, max_results)
-    elif args.help:
-        print('Blacksearch: ')
-        print('-use [--google] to perform an Google Search. /n /t - [-q] sets the serach query. For example: --google -q "Blacksearch')
         
     # elif args.username and args.query:
     #     username_results = username.search_username(args.query)
