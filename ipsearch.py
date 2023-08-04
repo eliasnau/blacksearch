@@ -1,4 +1,5 @@
 import aiohttp
+import time
 
 GREEN = "\033[92m"
 CYAN = "\033[96m"
@@ -10,34 +11,29 @@ RESET = "\033[0m"
 async def fetch_data(session, url):
     async with session.get(url) as response:
         if response.status == 200:
-            return await response.text()
+            return await response.json()
         else:
             return None
 
 
 async def search_ip(ip_address):
+    start_time = time.time()
     async with aiohttp.ClientSession() as session:
         # Fetch geolocation data
-        geolocation_url = f"https://api.hackertarget.com/geoip/?q={ip_address}"
+        geolocation_url = f"http://ip-api.com/json/{ip_address}"
         geolocation_data = await fetch_data(session, geolocation_url)
 
-        # Fetch hosting information
-        hosting_url = f"https://api.hackertarget.com/hostsearch/?q={ip_address}"
-        hosting_data = await fetch_data(session, hosting_url)
-
         # Print the IP address, country, state, city, and hosting information
-        print("/n" + "=" * 10 + " " + YELLOW + f"{ip_address} " + RESET + "=" * 10)
+        print("\n" + "=" * 10 + " " + YELLOW + f"{ip_address} " + RESET + "=" * 10)
         if geolocation_data:
-            geolocation_json = dict(
-                item.split(":") for item in geolocation_data.strip().split("\n")
-            )
-            print(CYAN + f"Country: {geolocation_json.get('Country', 'N/A')}")
-            print(f"State: {geolocation_json.get('State', 'N/A')}")
-            print(f"City: {geolocation_json.get('City', 'N/A')}" + RESET)
+            print(CYAN + f"Country: {geolocation_data.get('country', 'N/A')}")
+            print(f"Region: {geolocation_data.get('regionName', 'N/A')}")
+            print(f"City: {geolocation_data.get('city', 'N/A')}")
+            print(f"Lat: {geolocation_data.get('lat', 'N/A')}, Lon: {geolocation_data.get('lon', 'N/A')}")
+            print(f"zip: {geolocation_data.get('zip', 'N/A')}")
+            print(f"Service Provider: {geolocation_data.get('isp', 'N/A')}")
+            print(YELLOW)
+            finish_time = time.time()
+            print(f"Search completed in {finish_time - start_time:.2f} seconds." + RESET)
         else:
-            print("Geolocation data not available.")
-
-        if hosting_data:
-            print(f"Hosting: {hosting_data}")
-        else:
-            print("Hosting information not available.")
+            print("Service not available. Try again later")
