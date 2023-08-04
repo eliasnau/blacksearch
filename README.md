@@ -16,7 +16,7 @@ This program is for educational purposes ONLY. Do not use it against individuals
 
 #### Clone the repository
 ```shell
-git clone https://github.com/eliasnau25/blacksearch
+git clone https://github.com/eliasnau35/blacksearch
 cd blackbird
 ```
 
