@@ -7,6 +7,12 @@ import sys
 import googlesearch
 import ipsearch
 
+GREEN = "\033[92m"
+CYAN = "\033[96m"
+YELLOW = "\033[93m"
+RED = "\033[91m"
+RESET = "\033[0m"
+
 def main():
     parser = argparse.ArgumentParser(description="BlackSearch - A custom search tool")
     parser.add_argument("--google", action="store_true", help="Use Google Custom Search API")
@@ -18,6 +24,19 @@ def main():
     parser.add_argument("-r", "--max_results", type=int, default=10, help="Maximum number of results (default: 10)")
 
     args = parser.parse_args()
+
+
+    print(RED + """\n\n\n
+             ____  _            _    ____                      _
+            | __ )| | __ _  ___| | _/ ___|  ___  __ _ _ __ ___| |__
+            |  _ \| |/ _` |/ __| |/ \___ \ / _ \/ _` | '__/ __| '_ \\
+            | |_) | | (_| | (__|   < ___) |  __| (_| | | | (__| | | |
+            |____/|_|\__,_|\___|_|\_|____/ \___|\__,_|_|  \___|_| |_|
+            
+                                        Made by """ + CYAN + "eliasnau25" + RESET + "\n\n\n\n")
+
+
+
 
     if args.google and args.query:
         search_query = args.query
@@ -36,7 +55,7 @@ def main():
         asyncio.run(ip_search(args.query))
     
     else:
-        print("Unsupported search engine or invalid arguments. Please use --google for regular search, --username for social media username search, or --ip for IP address search.")
+        print(RED + "Unsupported search engine or invalid arguments. Please use --google for regular search, --username for social media username search, or --ip for IP address search.\n" + RESET)
 
 async def ip_search(ip_address):
     await ipsearch.search_ip(ip_address)
