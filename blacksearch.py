@@ -18,7 +18,7 @@ def main():
         if args.site:
             search_query = 'site:"' + args.site + '" ' + args.query
         if args.type:
-            search_query = 'type:"' + args.type + '" ' + search_query
+            search_query = 'filetype:"' + args.type + '" ' + search_query
 
         if args.max_results:
             googlesearch.search(search_query, args.max_results)
