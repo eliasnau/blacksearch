@@ -27,12 +27,53 @@ Optional Arguments:
 -s <site>   #Only search on a specific website
 -t <filetype>    #Only search for a specific file type
 ```
+Example:
+```python
+python blacksearch.py --google -q "Python documentation" -r 10 -t "pdf"
+
+#Output:
+Searching for 'site:"python.org" Python documentation'...
+========== Result #1 ==========
+Title: Python Docs
+Description: Python 3.11.4 documentation. Welcome! This is the official documentation for Python 3.11.4. Parts of the documentation: ...
+URL: https://docs.python.org/ 
+
+========== Result #2 ==========
+Title: Our Documentation | Python.org
+Description: Browse the docs online or download a copy of your own. Python's documentation, tutorials, and guides are constantly evolving. Get started here, or scroll ...
+URL: https://www.python.org/doc/ 
+
+========== Result #3 ==========
+Title: The Python Tutorial — Python 3.11.4 documentation
+Description: Python is an easy to learn, powerful programming language. It has efficient high-level data structures and a simple but effective approach to ...
+URL: https://docs.python.org/3/tutorial/index.html 
+
+Search completed in 3.53 seconds. Found 3 results.
+```
 
 #### Perform an IP-Search
 ```python
-python blackbird.py --ip -q <ip-adress>
+python blacksearch.py --ip -q <ip-adress> # You can provid an Ip-4 Ip-6 or a domain
 ```
 Optional Arguments:
 ```python
 none
 ```
+
+Example:
+```python
+python blacksearch.py --ip -q "google.com"
+
+#Output:
+========== google.com ==========
+Country: United Kingdom
+Region: England
+City: London
+Lat: 51.5072, Lon: -0.127586
+zip: W1B
+Service Provider: Google LLC
+
+Search completed in 0.33 seconds
+```
+
+#### More Features comming soon
