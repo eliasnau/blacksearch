@@ -4,7 +4,7 @@
 
 #### Clone the repository
 ```shell
-git clone https://github.com/p1ngul1n0/blackbird
+git clone https://github.com/eliasnau25/blacksearch
 cd blackbird
 ```
 
