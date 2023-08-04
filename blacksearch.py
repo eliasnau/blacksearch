@@ -1,14 +1,20 @@
 import argparse
+import asyncio
+import json
+import os
+import sys
 
 import googlesearch
+import ipsearch
 
 def main():
     parser = argparse.ArgumentParser(description="BlackSearch - A custom search tool")
     parser.add_argument("--google", action="store_true", help="Use Google Custom Search API")
     parser.add_argument("--username", action="store_true", help="Perform social media username search")
+    parser.add_argument("--ip", action="store_true", help="Perform IP address search")
     parser.add_argument("-q", "--query", help="The search query")
-    parser.add_argument("-s","--site" ,help="Search only on a spesific site")
-    parser.add_argument("-t","--type" ,help="Search only on a spesific site")
+    parser.add_argument("-s", "--site", help="Search only on a specific site")
+    parser.add_argument("-t", "--type", help="Search only for a specific file type")
     parser.add_argument("-r", "--max_results", type=int, default=10, help="Maximum number of results (default: 10)")
 
     args = parser.parse_args()
@@ -25,14 +31,15 @@ def main():
         else:
             max_results = 0
             googlesearch.search(search_query, max_results)
-        
-    # elif args.username and args.query:
-    #     username_results = username.search_username(args.query)
-    #     for app, data in username_results.items():
-    #         print(f"Results for {app}:")
-    #         print(json.dumps(data, indent=2))
+
+    elif args.ip and args.query:
+        asyncio.run(ip_search(args.query))
+    
     else:
-        print("Unsupported search engine or invalid arguments. Please use --google for regular search or --username to perform social media username search.")
+        print("Unsupported search engine or invalid arguments. Please use --google for regular search, --username for social media username search, or --ip for IP address search.")
+
+async def ip_search(ip_address):
+    await ipsearch.search_ip(ip_address)
 
 if __name__ == "__main__":
     main()
