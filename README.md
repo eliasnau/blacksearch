@@ -29,6 +29,8 @@ Optional Arguments:
 ```
 Example:
 ```python
+#Input:
+
 python blacksearch.py --google -q "Python documentation" -r 10 -t "pdf"
 
 #Output:
@@ -62,6 +64,8 @@ none
 
 Example:
 ```python
+#Input:
+
 python blacksearch.py --ip -q "google.com"
 
 #Output:
