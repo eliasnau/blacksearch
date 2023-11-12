@@ -17,7 +17,7 @@ This program is for educational purposes ONLY. Do not use it against individuals
 #### Clone the repository
 ```shell
 git clone https://github.com/eliasnau35/blacksearch
-cd blackbird
+cd blacksearch
 ```
 
 #### Install requirements
@@ -28,7 +28,7 @@ pip install -r requirements.txt
 
 ### Perform a normal google search in your terminal
 ```python
-python blackbird.py --google -q <query>
+python blacksearch.py --google -q <query>
 ```
 Optional Arguments:
 ```python
